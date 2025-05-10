@@ -4,10 +4,27 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+body.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
 header {
     background-color: #f8f9fa;
     padding: 20px;
     text-align: center;
+}
+
+header, footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
 }
 
 header h1 {
@@ -82,4 +99,17 @@ button:hover {
     --primary-color: #0056b3;
     --background-color: #333333;
     --text-color: #ffffff;
+}
+
+main {
+    padding: 20px;
+}
+
+.animate {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.animate.fade-in {
+    opacity: 1;
 }

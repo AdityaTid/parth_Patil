@@ -2,22 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeSwitcher = document.getElementById('theme-switcher');
     const body = document.body;
 
-    // Load the saved theme from localStorage
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    body.classList.add(savedTheme);
+    if (themeSwitcher) {
+        // Load the saved theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.classList.add(savedTheme);
 
-    // Set the theme switcher to the saved theme
-    themeSwitcher.checked = savedTheme === 'dark';
+        // Set the theme switcher to the saved theme
+        themeSwitcher.checked = savedTheme === 'dark';
 
-    themeSwitcher.addEventListener('change', () => {
-        if (themeSwitcher.checked) {
-            body.classList.replace('light', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            body.classList.replace('dark', 'light');
-            localStorage.setItem('theme', 'light');
-        }
-    });
+        themeSwitcher.addEventListener('change', () => {
+            if (themeSwitcher.checked) {
+                body.classList.replace('light', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.replace('dark', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    } else {
+        console.error('Element with ID "theme-switcher" not found.');
+    }
 
     // Example of adding animations to elements
     const animatedElements = document.querySelectorAll('.animate');
