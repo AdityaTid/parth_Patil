@@ -8,6 +8,8 @@ body.light {
     background-color: #ffffff;
     color: #000000;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body.dark {
@@ -17,8 +19,8 @@ body.dark {
 
 header {
     background-color: #f8f9fa;
-    padding: 20px;
-    text-align: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header, footer {
@@ -46,6 +48,28 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.nav-bar {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar li {
+    display: inline;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -68,8 +92,9 @@ nav a:hover {
 
 footer {
     background-color: #f8f9fa;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    margin-top: 20px;
 }
 
 footer p {

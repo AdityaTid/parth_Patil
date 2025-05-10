@@ -3,11 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     if (themeSwitcher) {
-        // Load the saved theme from localStorage
         const savedTheme = localStorage.getItem('theme') || 'light';
         body.classList.add(savedTheme);
-
-        // Set the theme switcher to the saved theme
         themeSwitcher.checked = savedTheme === 'dark';
 
         themeSwitcher.addEventListener('change', () => {
@@ -19,11 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('theme', 'light');
             }
         });
-    } else {
-        console.error('Element with ID "theme-switcher" not found.');
     }
 
-    // Example of adding animations to elements
     const animatedElements = document.querySelectorAll('.animate');
     animatedElements.forEach(element => {
         element.classList.add('fade-in');
