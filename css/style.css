@@ -110,6 +110,11 @@
     margin-left: 8px;
 }
 
+/* Increase font size for navbar links */
+.navbar-links-lg .nav-link {
+    font-size: 1.4rem;
+}
+
 @media (max-width: 991.98px) {
     .navbar .navbar-brand img {
         max-height: 45px;
