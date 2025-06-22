@@ -28,9 +28,9 @@
           , a = o(".navbar-brand img")
           , t = o(".navbar-brand.logodefault img");
         e <= 50 ? (o("header").removeClass("scrollHeader").addClass("fixedHeader"),
-        a.attr("src", "img/logos/logo-inner.png")) : (o("header").removeClass("fixedHeader").addClass("scrollHeader"),
-        a.attr("src", "img/logos/logo.png")),
-        t.attr("src", "img/logos/logo.png")
+        a.attr("src", "img/logos/logo-nav.png")) : (o("header").removeClass("fixedHeader").addClass("scrollHeader"),
+        a.attr("src", "img/logos/logo-nav.png")),
+        t.attr("src", "img/logos/logo-nav.png")
     }),
     i.on("scroll", function() {
         500 < o(this).scrollTop() ? o(".scroll-to-top").fadeIn(400) : o(".scroll-to-top").fadeOut(400)
@@ -109,7 +109,7 @@
             loop: !0,
             dots: !1,
             nav: !0,
-            navText: ["<i class='ti-arrow-left text-white'></i>", "<i class='ti-arrow-right text-white'></i>"],
+            navText: ["<i class='bi bi-arrow-left-short  text-white'></i>", "<i class='bi bi-arrow-right-short text-white'></i>"],
             margin: 30,
             autoplay: !0,
             autoplayTimeout: 5e3,

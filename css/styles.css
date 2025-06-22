@@ -16,7 +16,7 @@
     content: "";
     width: 80px;
     height: 80px;
-    border: 3px solid #f45b1e;
+    border: 3px solid #001f3f;
     display: block;
     border-radius: 50%;
     position: absolute;
@@ -34,7 +34,7 @@
     content: "";
     width: 80px;
     height: 80px;
-    border: 3px solid #f45b1e;
+    border: 3px solid #001f3f;
     display: block;
     border-radius: 50%;
     position: absolute;
@@ -76,16 +76,16 @@
 }
 
 a:hover,a:active {
-    color: #f45b1e;
+    color: #001f3f;
     text-decoration: none
 }
 
 .theme-overlay[data-overlay-dark]:before,.theme-overlay-180[data-overlay-dark]:before,.theme-overlay-90[data-overlay-dark]:before,.bg-theme-90,.bg-theme-solid,.theme-overlay-solid[data-overlay-dark]:before {
-    background: #f45b1e
+    background: #001f3f
 }
 
 .text-primary {
-    color: #f45b1e !important
+    color: #001f3f !important
 }
 
 .text-secondary {
@@ -93,7 +93,7 @@ a:hover,a:active {
 }
 
 .bg-primary {
-    background-color: #f45b1e !important
+    background-color: #001f3f !important
 }
 
 .bg-secondary {
@@ -101,7 +101,7 @@ a:hover,a:active {
 }
 
 .border-primary {
-    border-color: #f45b1e !important
+    border-color: #001f3f !important
 }
 
 .theme-overlay[data-overlay-dark]:before {
@@ -213,7 +213,7 @@ a:hover,a:active {
     content: '\e64d';
     font-weight: 600;
     font-family: 'themify';
-    color: #f45b1e;
+    color: #001f3f;
     position: absolute;
     left: 0;
     font-size: 17px
