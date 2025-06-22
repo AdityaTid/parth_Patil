@@ -189,7 +189,7 @@ a:hover,a:active {
     content: "";
     left: 1px;
     margin-right: 15px;
-    background-color: #f45b1e
+    background-color: #5459AC
 }
 
 .list-style1 {
@@ -250,7 +250,7 @@ a:hover,a:active {
     top: 10px;
     content: "";
     left: 0;
-    background-color: #f45b1e
+    background-color: #5459AC
 }
 
 @media screen and (max-width: 575px) {
@@ -266,7 +266,7 @@ a:hover,a:active {
 }
 
 .butn {
-    background: #f45b1e;
+    background: #5459AC;
     cursor: pointer;
     font-weight: 700;
     color: #fff;
@@ -291,11 +291,11 @@ a:hover,a:active {
 }
 
 .butn:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 a.butn:hover,a.butn:active {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .butn:before {
@@ -344,7 +344,7 @@ a.butn:hover,a.butn:active {
 }
 
 .butn.primary {
-    background: #f45b1e !important
+    background: #5459AC !important
 }
 
 .butn.primary:before {
@@ -361,7 +361,7 @@ a.butn:hover,a.butn:active {
 }
 
 .butn.secondary:before {
-    background: #f45b1e
+    background: #5459AC
 }
 
 a.butn.secondary:hover,a.butn.secondary:active {
@@ -369,7 +369,7 @@ a.butn.secondary:hover,a.butn.secondary:active {
 }
 
 .butn.white {
-    color: #f45b1e;
+    color: #5459AC;
     background: #ffffff !important;
     background: -webkit-linear-gradient(-45deg, #e0e0e0, #fff);
     background: -moz-linear-gradient(-45deg, #e0e0e0, #fff);
@@ -378,11 +378,11 @@ a.butn.secondary:hover,a.butn.secondary:active {
 }
 
 .butn.white:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 a.butn.white:hover,a.butn.white:active {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .butn.white:before {
@@ -410,7 +410,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .button {
-    background-color: #f45b1e;
+    background-color: #5459AC;
     color: #fff;
     position: relative;
     display: inline-block;
@@ -532,7 +532,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .navbar-nav li.current>a,.navbar-nav li.active>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .attr-nav>ul>li>a.butn {
@@ -540,90 +540,90 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .navbar>ul>li.current>a:after {
-    border-color: transparent #f45b1e #f45b1e transparent
+    border-color: transparent #5459AC #5459AC transparent
 }
 
 .menu_area-light .navbar-nav li.current>a,.menu_area-light .navbar-nav li.active>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .menu_area-light .navbar>ul>li.current>a:after {
-    border-color: transparent #f45b1e #f45b1e transparent
+    border-color: transparent #5459AC #5459AC transparent
 }
 
 .menu_area-light.scrollHeader .navbar-nav li.current>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .menu_area-light.scrollHeader .navbar-nav li.current>a:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .menu_area-light.scrollHeader .navbar-nav li.active>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .menu_area-light.scrollHeader .navbar>ul>li.current>a:after {
-    border-color: transparent #f45b1e #f45b1e transparent
+    border-color: transparent #5459AC #5459AC transparent
 }
 
 @media screen and (min-width: 992px) {
     .menu_area-light .navbar ul ul li.active>a,.menu_area-light .navbar-nav li.has-sub a:hover {
-        color:#f45b1e
+        color:#5459AC
     }
 
     .menu_area-light .navbar>ul>li.has-sub>a:hover:after {
-        border-color: #f45b1e
+        border-color: #5459AC
     }
 
     .menu_area-light.scrollHeader .navbar-nav>li.has-sub>a:hover {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2.scrollHeader .navbar-nav>li.has-sub>a:hover {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2.scrollHeader .navbar-nav>li.has-sub>a:hover:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 
     .header-style2 .navbar>ul>li.has-sub.current>a:hover:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 
     .header-style2.scrollHeader .navbar-nav li.current>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2.scrollHeader .navbar-nav li.current>a:hover {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2.scrollHeader .navbar>ul>li.current>a:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 
     .header-style2 .navbar ul ul li.active>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2 .navbar-nav li.has-sub a:hover,.header-style2 .navbar-nav li.has-sub a:active,.header-style2 .navbar-nav li.has-sub a:focus {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2 .navbar-nav li.current>a,.header-style2 .navbar-nav li.active>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style2 .navbar>ul>li.has-sub>a:hover:after,.header-style2 .navbar>ul>li.has-sub>a:active:after,.header-style2 .navbar>ul>li.has-sub>a:focus:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 }
 
 @media screen and (max-width: 991px) {
     .header-style1 .navbar-toggler {
-        background:#f45b1e
+        background:#5459AC
     }
 
     .header-style1 .navbar-toggler:after {
@@ -641,28 +641,28 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .header-style2 .navbar-nav li.current>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .header-style2 .navbar>ul>li.current>a:after {
-    border-color: transparent #f45b1e #f45b1e transparent
+    border-color: transparent #5459AC #5459AC transparent
 }
 
 .header-style2.scrollHeader .navbar-nav li.current>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .header-style2.scrollHeader .navbar-nav li.current>a:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .header-style2.scrollHeader .navbar>ul>li.current>a:after {
-    border-color: transparent #f45b1e #f45b1e transparent
+    border-color: transparent #5459AC #5459AC transparent
 }
 
 @media screen and (min-width: 992px) {
     .header-style2 .navbar ul ul li.active>a {
-        color:#f45b1e
+        color:#5459AC
     }
 
     .header-style2 .butn.secondary:before {
@@ -674,7 +674,7 @@ a.butn.white:hover,a.butn.white:active {
     }
 
     .header-style2.scrollHeader .butn.secondary:before {
-        background: #f45b1e
+        background: #5459AC
     }
 
     .header-style2.scrollHeader .butn.secondary:hover,.header-style2.scrollHeader .butn.secondary:focus,.header-style2.scrollHeader .butn.secondary:active {
@@ -683,62 +683,62 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .header-style3 .navbar-nav li.current>a,.header-style3 .navbar-nav li.active>a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 @media screen and (min-width: 992px) {
     .header-style3 .navbar-nav li.active>a {
-        color:#f45b1e
+        color:#5459AC
     }
 
     .header-style3 .navbar-nav>li>a:hover,.header-style3 .navbar-nav>li>a:active,.header-style3 .navbar-nav>li>a:focus {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3 .navbar ul ul li.active>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3 .navbar-nav li.has-sub a:hover,.header-style3 .navbar-nav li.current>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3 .navbar-nav>li.has-sub>a:hover {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3 .navbar>ul>li.has-sub>a:hover:after,.header-style3 .navbar>ul>li.current>a:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 
     .header-style3.scrollHeader .navbar-nav>li.has-sub>a:hover {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3.scrollHeader .navbar>ul>li.has-sub>a:hover:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 
     .header-style3.scrollHeader .navbar-nav>li.active>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3.scrollHeader .navbar-nav li.current>a {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3.scrollHeader .navbar-nav li.current>a:hover {
-        color: #f45b1e
+        color: #5459AC
     }
 
     .header-style3.scrollHeader .navbar>ul>li.current>a:after {
-        border-color: transparent #f45b1e #f45b1e transparent
+        border-color: transparent #5459AC #5459AC transparent
     }
 }
 
 @media screen and (max-width: 991px) {
     .header-style3 .navbar-toggler {
-        background:#f45b1e
+        background:#5459AC
     }
 
     .header-style3 .navbar-toggler:after {
@@ -807,7 +807,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .slider-fade.owl-theme .owl-dots .owl-dot.active {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .slider-fade.owl-theme .owl-dots .owl-dot:before {
@@ -840,7 +840,7 @@ a.butn.white:hover,a.butn.white:active {
     height: 20px;
     right: -45px;
     top: 50px;
-    background-color: #f45b1e
+    background-color: #5459AC
 }
 
 .slider-fade.owl-theme .owl-dots .owl-dot:last-child span:before {
@@ -848,7 +848,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .slider-fade.owl-theme .owl-dots .owl-dot.active:before,.slider-fade.owl-theme .owl-dots .owl-dot:hover:before {
-    -webkit-text-stroke: 0.5px #f45b1e
+    -webkit-text-stroke: 0.5px #5459AC
 }
 
 .slider-fade .owl-item {
@@ -924,7 +924,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .counter-block:after {
-    background: #f45b1e;
+    background: #5459AC;
     content: "";
     height: 10px;
     position: absolute;
@@ -1016,7 +1016,7 @@ a.butn.white:hover,a.butn.white:active {
     content: "";
     font-weight: 700;
     vertical-align: middle;
-    background-color: #f45b1e;
+    background-color: #5459AC;
     width: 8px;
     padding: 0;
     height: 8px;
@@ -1097,7 +1097,7 @@ a.butn.white:hover,a.butn.white:active {
     display: inline-block;
     font-weight: 500;
     font-size: 20px;
-    color: #f45b1e;
+    color: #5459AC;
     background: #1E2023;
     height: 62px;
     width: 62px;
@@ -1116,7 +1116,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .list-style3 li a:hover {
-    background: #f45b1e;
+    background: #5459AC;
     color: #fff
 }
 
@@ -1126,7 +1126,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .list-style3 li a i {
-    color: #f45b1e;
+    color: #5459AC;
     font-size: 18px;
     margin-right: 18px;
     transition: all 0.3s ease-in-out
@@ -1140,7 +1140,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .popular-tags a:hover {
-    background: #f45b1e;
+    background: #5459AC;
     color: #fff
 }
 
@@ -1150,7 +1150,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .blog-card .blog-content h3 a:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .pagination {
@@ -1176,7 +1176,7 @@ a.butn.white:hover,a.butn.white:active {
     border-radius: 5px;
     line-height: 40px;
     text-decoration: none;
-    color: #f45b1e;
+    color: #5459AC;
     font-weight: 800;
     border: 1px solid #dbdbdb;
     background: #fff
@@ -1190,7 +1190,7 @@ a.butn.white:hover,a.butn.white:active {
 
 .pagination .active a {
     background-color: #f7f7f7;
-    color: #f45b1e;
+    color: #5459AC;
     border: 1px solid #dbdbdb;
     cursor: default
 }
@@ -1202,7 +1202,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .blog-tags a {
-    background-color: #f45b1e;
+    background-color: #5459AC;
     padding: 7px 12px;
     color: #fff;
     font-size: 14px;
@@ -1210,12 +1210,12 @@ a.butn.white:hover,a.butn.white:active {
     margin: 0.6rem 5px 0 0;
     display: inline-block;
     vertical-align: top;
-    border: 1px solid #f45b1e
+    border: 1px solid #5459AC
 }
 
 .blog-tags a:hover,.blog-tags a:active,.blog-tags a:focus {
     background-color: #fff;
-    color: #f45b1e
+    color: #5459AC
 }
 
 .list-style4 li {
@@ -1226,7 +1226,7 @@ a.butn.white:hover,a.butn.white:active {
     content: '\e64d';
     font-weight: 500;
     font-family: 'themify';
-    color: #f45b1e;
+    color: #5459AC;
     position: absolute;
     left: 0;
     font-size: 17px
@@ -1326,7 +1326,7 @@ a.butn.white:hover,a.butn.white:active {
     top: 5%;
     right: -11px;
     z-index: 9;
-    background-color: #f45b1e;
+    background-color: #5459AC;
     height: 130px;
     width: 130px;
     border-radius: 50%;
@@ -1482,7 +1482,7 @@ a.butn.white:hover,a.butn.white:active {
     position: relative;
     height: 80px;
     width: 80px;
-    background: #f45b1e;
+    background: #5459AC;
     text-align: center;
     display: inline-block;
     line-height: 85px;
@@ -1514,7 +1514,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .social-icon li i:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .services-cat-list .list-wrap li a {
@@ -1535,9 +1535,9 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .services-cat-list .list-wrap li.active a,.services-cat-list .list-wrap li a:hover {
-    background: #f45b1e;
+    background: #5459AC;
     color: #fff;
-    border-color: #f45b1e
+    border-color: #5459AC
 }
 
 .services-cat-list .list-wrap li.active a i,.services-cat-list .list-wrap li a:hover i {
@@ -1564,7 +1564,7 @@ a.butn.white:hover,a.butn.white:active {
     bottom: 0;
     width: 35px;
     height: 3px;
-    background: #f45b1e
+    background: #5459AC
 }
 
 .services-brochure-wrap .download-btn {
@@ -1578,15 +1578,15 @@ a.butn.white:hover,a.butn.white:active {
 
 .services-brochure-wrap .download-btn i {
     font-size: 16px;
-    color: #f45b1e;
+    color: #5459AC;
     margin-right: 10px;
     transition: all 0.3s ease-out 0s
 }
 
 .services-brochure-wrap .download-btn:hover {
     color: #fff;
-    background: #f45b1e;
-    border-color: #f45b1e
+    background: #5459AC;
+    border-color: #5459AC
 }
 
 .services-brochure-wrap .download-btn:hover i {
@@ -1616,7 +1616,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .services-block .content-box:hover h3 a {
-    color: #f45b1e
+    color: #5459AC
 }
 
 @media screen and (min-width: 992px) {
@@ -1650,7 +1650,7 @@ a.butn.white:hover,a.butn.white:active {
     display: inline-block;
     width: 6px;
     height: 6px;
-    background-color: #f45b1e;
+    background-color: #5459AC;
     position: absolute;
     right: -20px;
     top: 15px;
@@ -1710,11 +1710,11 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .service-card .service-details h3:hover,.service-card .service-details h3:active,.service-card .service-details h3:focus {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .service-card .service-details a:hover,.service-card .service-details a:active,.service-card .service-details a:focus {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .service-card:hover .service-details p {
@@ -1731,7 +1731,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .owl-nav .owl-next {
-    color: #f45b1e;
+    color: #5459AC;
     font-size: 43px;
     text-align: center;
     width: 40px;
@@ -1857,8 +1857,8 @@ a.butn.white:hover,a.butn.white:active {
     width: 14px;
     height: 14px;
     box-sizing: border-box;
-    background-color: #f45b1e;
-    border: 3px solid #f45b1e;
+    background-color: #5459AC;
+    border: 3px solid #5459AC;
     transform: scale(0.6);
     transition: .3s;
     margin: 5px
@@ -1866,7 +1866,7 @@ a.butn.white:hover,a.butn.white:active {
 
 .portfolio01-carousel.owl-theme .owl-dots .owl-dot.active span,.portfolio01-carousel.owl-theme .owl-dots .owl-dot:hover span {
     background-color: transparent;
-    border-color: #f45b1e;
+    border-color: #5459AC;
     transform: scale(0.9)
 }
 
@@ -1884,7 +1884,7 @@ a.butn.white:hover,a.butn.white:active {
     height: 50px;
     width: 50px;
     background: #F9F0F0;
-    color: #f45b1e;
+    color: #5459AC;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -1926,7 +1926,7 @@ a.butn.white:hover,a.butn.white:active {
     content: '\e64d';
     font-weight: 500;
     font-family: 'themify';
-    color: #f45b1e;
+    color: #5459AC;
     position: absolute;
     left: 0;
     font-size: 19px
@@ -2000,7 +2000,7 @@ a.butn.white:hover,a.butn.white:active {
 .process-content {
     background-color: #ffffff;
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
-    border-bottom: 2px solid #f45b1e;
+    border-bottom: 2px solid #5459AC;
     padding: 30px
 }
 
@@ -2053,27 +2053,27 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .search-form_input {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .search-frame h4 a:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .search-frame .search_list .match {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .search-frame .search_list li:before {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .search-frame .search_list li+li {
-    border-top: 3px solid #f45b1e
+    border-top: 3px solid #5459AC
 }
 
 .search-frame .search {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .lg-backdrop {
@@ -2097,7 +2097,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .error-bg {
-    background: #f45b1e;
+    background: #5459AC;
     padding: 0px 20px 0px 20px;
     margin-bottom: 20px
 }
@@ -2213,7 +2213,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .countdown li {
-    background: #f45b1e;
+    background: #5459AC;
     display: inline-block;
     text-align: center;
     min-width: 150px;
@@ -2278,7 +2278,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .coming-social-icon li a:hover {
-    background-color: #f45b1e
+    background-color: #5459AC
 }
 
 @media screen and (max-width: 1199px) {
@@ -2504,7 +2504,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .timeline>li:hover>.timeline-badge {
-    border: 3px solid #f45b1e
+    border: 3px solid #5459AC
 }
 
 .timeline small {
@@ -2647,7 +2647,7 @@ a.butn.white:hover,a.butn.white:active {
     text-align: center;
     display: block;
     font-size: 14px;
-    color: #f45b1e;
+    color: #5459AC;
     background: #fff;
     transition: all .3s ease-in-out 0s
 }
@@ -2658,7 +2658,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .team-block .social-icons li a:hover i {
-    background: #f45b1e;
+    background: #5459AC;
     color: #fff
 }
 
@@ -2758,7 +2758,7 @@ a.butn.white:hover,a.butn.white:active {
     line-height: 36px;
     font-size: 14px;
     display: inline-block;
-    background: #f45b1e;
+    background: #5459AC;
     color: #ffffff
 }
 
@@ -2818,8 +2818,8 @@ a.butn.white:hover,a.butn.white:active {
     width: 14px;
     height: 14px;
     box-sizing: border-box;
-    background-color: #f45b1e;
-    border: 3px solid #f45b1e;
+    background-color: #5459AC;
+    border: 3px solid #5459AC;
     transform: scale(0.6);
     transition: .3s;
     margin: 5px
@@ -2827,7 +2827,7 @@ a.butn.white:hover,a.butn.white:active {
 
 .testimonial-carousel.owl-theme .owl-dots .owl-dot.active span,.testimonial-carousel.owl-theme .owl-dots .owl-dot:hover span {
     background-color: transparent;
-    border-color: #f45b1e;
+    border-color: #5459AC;
     transform: scale(0.9)
 }
 
@@ -2871,7 +2871,7 @@ a.butn.white:hover,a.butn.white:active {
     padding: 20px 55px 20px 25px;
     font-weight: 400;
     text-decoration: none;
-    background-color: #f45b1e
+    background-color: #5459AC
 }
 
 .accordion-style .btn-link.collapsed {
@@ -2920,7 +2920,7 @@ a.butn.white:hover,a.butn.white:active {
     transform: none;
     top: 17px;
     position: absolute;
-    color: #f45b1e;
+    color: #5459AC;
     background-color: #fff;
     line-height: 22px;
     width: 25px;
@@ -2963,12 +2963,12 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .form-control:focus {
-    border-color: #f45b1e
+    border-color: #5459AC
 }
 
 .form-check-input:checked {
-    border-color: #f45b1e;
-    background-color: #f45b1e
+    border-color: #5459AC;
+    background-color: #5459AC
 }
 
 .quform-input {
@@ -3081,7 +3081,7 @@ a.butn.white:hover,a.butn.white:active {
     right: 0;
     top: 0;
     width: auto;
-    background: #f45b1e;
+    background: #5459AC;
     height: 50px
 }
 
@@ -3169,7 +3169,7 @@ a.butn.white:hover,a.butn.white:active {
     width: calc(100% - 50%);
     height: 100%;
     content: "";
-    background: #f45b1e;
+    background: #5459AC;
     z-index: 1
 }
 
@@ -3277,7 +3277,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .card-style1:hover .card-image:before {
-    background: #f45b1e
+    background: #5459AC
 }
 
 @media screen and (max-width: 1199px) {
@@ -3318,7 +3318,7 @@ a.butn.white:hover,a.butn.white:active {
 }
 
 .card-style2:hover .image-box .blog-date {
-    background-color: #f45b1e
+    background-color: #5459AC
 }
 
 .card-style2 .image-box .blog-date {
@@ -3401,7 +3401,7 @@ a.butn.white:hover,a.butn.white:active {
 
 .blog-card .blog-link a {
     padding-top: 10px;
-    color: #f45b1e;
+    color: #5459AC;
     text-transform: uppercase
 }
 
@@ -3428,7 +3428,7 @@ footer h3:after {
     display: block;
     width: 70px;
     height: 2px;
-    background: #f45b1e;
+    background: #5459AC;
     margin: 12px auto 0 auto
 }
 
@@ -3481,11 +3481,11 @@ footer h3:after {
 }
 
 .footer-list-style1 li a:hover {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .footer-list-style1 li a:hover:after {
-    color: #f45b1e
+    color: #5459AC
 }
 
 .footer-icon ul li {
@@ -3499,7 +3499,7 @@ footer h3:after {
     height: 35px;
     text-align: center;
     line-height: 36px;
-    background: #f45b1e;
+    background: #5459AC;
     color: #fff
 }
 
@@ -3509,7 +3509,7 @@ footer h3:after {
     position: fixed;
     top: 150px;
     right: -89px;
-    background: #f45b1e;
+    background: #5459AC;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     z-index: 9999
 }
@@ -3534,11 +3534,11 @@ footer h3:after {
     transition-timing-function: ease-in-out;
     transition-duration: .2s;
     right: 0px;
-    background: #f45b1e
+    background: #5459AC
 }
 
 .all-demo:hover {
-    background: #f45b1e
+    background: #5459AC
 }
 
 .buy-theme span,.all-demo span {
@@ -3573,7 +3573,7 @@ footer h3:after {
     position: fixed;
     top: 185px;
     right: -105px;
-    background: #f45b1e;
+    background: #5459AC;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     z-index: 9999
 }
