@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CraneX – Industrial Crane Hire & Heavy Lifting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --amber: #D97706;
+    --amber-light: #F59E0B;
+    --amber-dark: #B45309;
+    --iron-950: #141210;
+    --iron-900: #252220;
+    --iron-800: #3a3530;
+    --iron-700: #4e4840;
+    --iron-600: #6b6258;
+    --iron-500: #8a7f73;
+    --iron-400: #a89e94;
+    --iron-300: #c8bfb5;
+    --iron-200: #e0d9d2;
+    --iron-100: #f0ebe5;
+    --iron-50: #f8f5f1;
+    --white: #ffffff;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+  }
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--iron-950);
+    color: var(--iron-200);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1.1; }
+  .condensed { font-family: 'Barlow Condensed', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button { font-family: 'Barlow Condensed', sans-serif; cursor: pointer; border: none; outline: none; }
+
+  /* ─── UTILITY ─────────────────────────────────────────────────── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 1rem; color: var(--iron-400); max-width: 540px; line-height: 1.7;
+  }
+  .amber { color: var(--amber); }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--amber); color: var(--iron-950);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 14px 28px;
+    border-radius: var(--radius-sm); transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 13px 28px;
+    border: 1.5px solid var(--iron-700); border-radius: var(--radius-sm);
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-1px); }
+
+  /* ─── REVEAL ANIMATION ────────────────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── HEADER ──────────────────────────────────────────────────── */
+  #header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 24px; height: 72px;
+    display: flex; align-items: center;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  #header.scrolled {
+    background: rgba(20,18,16,0.97);
+    box-shadow: 0 1px 0 var(--iron-800), 0 8px 24px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700;
+    color: var(--white); display: flex; align-items: center; gap: 8px;
+  }
+  .logo-mark {
+    width: 32px; height: 32px; background: var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 4px;
+  }
+  .logo-mark svg { width: 18px; height: 18px; }
+  .logo span { color: var(--amber); }
+  nav { display: flex; align-items: center; gap: 8px; }
+  nav a {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 14px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--iron-300); padding: 6px 14px;
+    border-radius: var(--radius-sm); transition: color 0.2s;
+  }
+  nav a:hover { color: var(--amber); }
+  .nav-cta { background: var(--amber); color: var(--iron-950) !important; padding: 8px 18px !important; }
+  .nav-cta:hover { background: var(--amber-light); color: var(--iron-950) !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; padding: 8px;
+    background: none; cursor: pointer;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--iron-200); transition: 0.3s; }
+  .mobile-nav {
+    display: none; position: fixed; top: 72px; left: 0; right: 0;
+    background: var(--iron-900); padding: 20px 24px;
+    flex-direction: column; gap: 4px; z-index: 99;
+    border-bottom: 1px solid var(--iron-800);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 16px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--iron-200); padding: 12px 8px;
+    border-bottom: 1px solid var(--iron-800);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+
+  /* ─── HERO ────────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh; position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    background: linear-gradient(160deg, var(--iron-950) 60%, #1e1508 100%);
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.035;
+    background-image:
+      linear-gradient(var(--amber) 1px, transparent 1px),
+      linear-gradient(90deg, var(--amber) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-gradient {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(217,119,6,0.08) 0%, transparent 70%);
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 120px 24px 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center; width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(217,119,6,0.12); border: 1px solid rgba(217,119,6,0.3);
+    border-radius: 100px; padding: 6px 16px 6px 8px; margin-bottom: 24px;
+  }
+  .hero-badge-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--amber);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero-badge span {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px;
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber);
+  }
+  .hero-title {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: clamp(2.8rem, 5.5vw, 5rem); line-height: 1.0;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .hero-title .line-accent { color: var(--amber); display: block; }
+  .hero-desc {
+    font-size: 1.05rem; color: var(--iron-400); max-width: 440px;
+    line-height: 1.7; margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 52px; }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-stat-val {
+    font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700;
+    color: var(--white); line-height: 1;
+  }
+  .hero-stat-val .amber { color: var(--amber); }
+  .hero-stat-lbl {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px;
+    font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--iron-500); margin-top: 4px;
+  }
+  /* THREE.JS canvas container */
+  #hero-canvas-wrap {
+    position: relative; aspect-ratio: 1/1; min-height: 380px; max-height: 600px;
+    border-radius: var(--radius-lg); overflow: hidden;
+    background: radial-gradient(ellipse at 50% 40%, rgba(217,119,6,0.06) 0%, transparent 70%);
+  }
+  #hero-canvas {
+    width: 100% !important; height: 100% !important; display: block;
+    border-radius: var(--radius-lg);
+  }
+  .canvas-glow {
+    position: absolute; inset: -2px; border-radius: calc(var(--radius-lg) + 2px);
+    background: linear-gradient(135deg, rgba(217,119,6,0.25), transparent 50%, rgba(217,119,6,0.1));
+    pointer-events: none; z-index: 1;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3;
+  }
+  .scroll-hint span {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--iron-600);
+  }
+  .scroll-hint-line {
+    width: 1px; height: 40px; background: linear-gradient(var(--iron-700), transparent);
+    animation: scroll-line 2s ease-in-out infinite;
+  }
+  @keyframes scroll-line {
+    0% { opacity: 1; transform: scaleY(1) translateY(0); }
+    100% { opacity: 0; transform: scaleY(0.3) translateY(20px); }
+  }
+
+  /* ─── TICKER ──────────────────────────────────────────────────── */
+  .ticker-bar {
+    background: var(--amber); overflow: hidden;
+    padding: 10px 0; white-space: nowrap;
+  }
+  .ticker-track {
+    display: inline-flex; gap: 0;
+    animation: ticker 30s linear infinite;
+  }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .ticker-item {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--iron-950); padding: 0 32px; display: flex; align-items: center; gap: 32px;
+  }
+  .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(20,18,16,0.4); }
+
+  /* ─── SECTION SHARED ──────────────────────────────────────────── */
+  section { padding: 100px 0; }
+  .divider { width: 48px; height: 3px; background: var(--amber); margin-bottom: 24px; }
+
+  /* ─── SERVICES ────────────────────────────────────────────────── */
+  #services { background: var(--iron-900); }
+  .services-header { margin-bottom: 60px; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .service-card {
+    background: var(--iron-800); padding: 36px 28px;
+    transition: background 0.3s; cursor: pointer; position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--amber); transform: scaleX(0);
+    transition: transform 0.3s; transform-origin: left;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { background: var(--iron-700); }
+  .service-icon {
+    width: 48px; height: 48px; margin-bottom: 20px;
+    color: var(--amber);
+  }
+  .service-title {
+    font-family: 'Oswald', sans-serif; font-size: 1.25rem; font-weight: 600;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .service-desc { font-size: 0.9rem; color: var(--iron-400); line-height: 1.65; }
+  .service-tag {
+    display: inline-block; margin-top: 16px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--amber); border: 1px solid rgba(217,119,6,0.3);
+    border-radius: 100px; padding: 4px 12px;
+  }
+
+  /* ─── FLEET ───────────────────────────────────────────────────── */
+  #fleet { background: var(--iron-950); }
+  .fleet-header { margin-bottom: 48px; }
+  .fleet-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 36px; }
+  .fleet-tab {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--iron-400); background: var(--iron-900);
+    padding: 10px 20px; border-radius: var(--radius-sm);
+    border: 1px solid var(--iron-800); transition: all 0.2s;
+  }
+  .fleet-tab.active, .fleet-tab:hover {
+    background: var(--amber); color: var(--iron-950); border-color: var(--amber);
+  }
+  .fleet-content { display: none; }
+  .fleet-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .fleet-info {}
+  .fleet-model {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px;
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 8px;
+  }
+  .fleet-name {
+    font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .fleet-desc { color: var(--iron-400); line-height: 1.7; margin-bottom: 28px; }
+  .fleet-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .fleet-spec { background: var(--iron-900); border-radius: var(--radius-sm); padding: 16px; }
+  .fleet-spec-val {
+    font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700;
+    color: var(--amber);
+  }
+  .fleet-spec-lbl {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--iron-500); margin-top: 2px;
+  }
+  .fleet-vis {
+    background: var(--iron-900); border-radius: var(--radius-lg);
+    aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .fleet-vis-inner {
+    position: relative; display: flex; align-items: center; justify-content: center;
+  }
+  .fleet-vis svg { width: 180px; height: 180px; opacity: 0.8; }
+
+  /* ─── PROJECTS ────────────────────────────────────────────────── */
+  #projects { background: var(--iron-900); }
+  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .project-card {
+    background: var(--iron-800); border-radius: var(--radius-md);
+    overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  .project-img {
+    height: 200px; background: var(--iron-700); position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .project-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(20,18,16,0.9) 100%);
+  }
+  .project-img svg { width: 120px; height: 120px; opacity: 0.25; }
+  .project-cat {
+    position: absolute; top: 16px; left: 16px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--iron-950); background: var(--amber);
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .project-body { padding: 24px; }
+  .project-title {
+    font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 600;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .project-desc { font-size: 0.875rem; color: var(--iron-400); line-height: 1.6; margin-bottom: 16px; }
+  .project-meta { display: flex; gap: 24px; }
+  .project-meta-item {}
+  .project-meta-val {
+    font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--amber);
+  }
+  .project-meta-lbl {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--iron-500);
+  }
+
+  /* ─── SAFETY ──────────────────────────────────────────────────── */
+  #safety {
+    background: var(--iron-950);
+    background-image: radial-gradient(ellipse 70% 50% at 20% 50%, rgba(217,119,6,0.05) 0%, transparent 70%);
+  }
+  .safety-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .safety-visual {
+    position: relative; display: flex; align-items: center; justify-content: center;
+  }
+  .safety-hex-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .safety-hex {
+    aspect-ratio: 1/1; background: var(--iron-900);
+    border-radius: var(--radius-md); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 20px;
+    transition: background 0.3s; text-align: center;
+  }
+  .safety-hex:hover { background: var(--iron-800); }
+  .safety-hex svg { width: 32px; height: 32px; color: var(--amber); margin-bottom: 8px; }
+  .safety-hex-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--iron-300);
+  }
+  .safety-cert-badge {
+    position: absolute; bottom: -12px; right: -12px;
+    background: var(--amber); border-radius: var(--radius-md);
+    padding: 16px 20px; text-align: center;
+  }
+  .safety-cert-val {
+    font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700;
+    color: var(--iron-950); line-height: 1;
+  }
+  .safety-cert-lbl {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px;
+    font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(20,18,16,0.7);
+  }
+  .safety-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+  .safety-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 0.95rem; color: var(--iron-300);
+  }
+  .safety-list li::before {
+    content: '';
+    flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px;
+    background: rgba(217,119,6,0.15); border-radius: 50%;
+    border: 1.5px solid var(--amber);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23D97706' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center;
+    background-size: 11px;
+  }
+
+  /* ─── TESTIMONIALS ────────────────────────────────────────────── */
+  #testimonials { background: var(--iron-900); }
+  .testimonials-header { margin-bottom: 52px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testimonial-card {
+    background: var(--iron-800); border-radius: var(--radius-md);
+    padding: 28px; position: relative;
+    border-top: 2px solid transparent; transition: border-color 0.3s;
+  }
+  .testimonial-card:hover { border-top-color: var(--amber); }
+  .testimonial-quote { font-size: 3rem; color: var(--amber); line-height: 1; margin-bottom: 12px; }
+  .testimonial-text { font-size: 0.9rem; color: var(--iron-300); line-height: 1.7; margin-bottom: 20px; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-avatar {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--iron-700);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700;
+    color: var(--amber);
+  }
+  .testimonial-name {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 14px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--white);
+  }
+  .testimonial-role { font-size: 0.8rem; color: var(--iron-500); }
+  .stars { color: var(--amber); font-size: 13px; margin-bottom: 12px; }
+
+  /* ─── CONTACT ─────────────────────────────────────────────────── */
+  #contact { background: var(--iron-950); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .contact-info-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: var(--radius-sm);
+    background: rgba(217,119,6,0.1); border: 1px solid rgba(217,119,6,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--amber); flex-shrink: 0;
+  }
+  .contact-icon svg { width: 18px; height: 18px; }
+  .contact-detail-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--iron-500); margin-bottom: 4px;
+  }
+  .contact-detail-val { font-size: 0.95rem; color: var(--iron-200); }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--iron-400);
+  }
+  .form-input, .form-select, .form-textarea {
+    background: var(--iron-900); border: 1px solid var(--iron-800);
+    border-radius: var(--radius-sm); padding: 12px 16px;
+    font-family: 'Barlow', sans-serif; font-size: 0.9rem;
+    color: var(--iron-200); transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none; border-color: var(--amber);
+  }
+  .form-textarea { resize: vertical; min-height: 100px; }
+  .form-select { appearance: none; }
+
+  /* ─── FOOTER ──────────────────────────────────────────────────── */
+  footer {
+    background: var(--iron-900); border-top: 1px solid var(--iron-800);
+    padding: 60px 0 32px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand-desc { font-size: 0.875rem; color: var(--iron-500); line-height: 1.7; margin: 16px 0 20px; }
+  .footer-socials { display: flex; gap: 8px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    background: var(--iron-800); border: 1px solid var(--iron-700);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--iron-400); transition: all 0.2s;
+  }
+  .social-btn:hover { background: var(--amber); color: var(--iron-950); border-color: var(--amber); }
+  .social-btn svg { width: 16px; height: 16px; }
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--iron-400); margin-bottom: 16px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 0.875rem; color: var(--iron-500);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--amber); }
+  .footer-bottom {
+    border-top: 1px solid var(--iron-800); padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; color: var(--iron-600);
+  }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { color: var(--iron-600); transition: color 0.2s; }
+  .footer-bottom-links a:hover { color: var(--amber); }
+
+  /* ─── RESPONSIVE ──────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .fleet-content.active { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-top: 100px; }
+    #hero-canvas-wrap { max-height: 320px; order: -1; }
+    .services-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .safety-inner { grid-template-columns: 1fr; gap: 48px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .hero-stats { gap: 20px; }
+  }
+  @media (max-width: 480px) {
+    section { padding: 72px 0; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+          <path d="M4 20V8l8-4 8 4v12"/>
+          <line x1="12" y1="4" x2="12" y2="20"/>
+          <line x1="4" y1="20" x2="20" y2="20"/>
+        </svg>
+      </div>
+      Crane<span>X</span>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#projects">Projects</a>
+      <a href="#safety">Safety</a>
+      <a href="#contact" class="nav-cta">Get Quote</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#fleet" onclick="closeMobileNav()">Fleet</a>
+  <a href="#projects" onclick="closeMobileNav()">Projects</a>
+  <a href="#safety" onclick="closeMobileNav()">Safety</a>
+  <a href="#testimonials" onclick="closeMobileNav()">About</a>
+  <a href="#contact" onclick="closeMobileNav()">Get a Quote</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-inner">
+    <!-- LEFT COPY -->
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>ISO 9001 Certified Operations</span>
+      </div>
+      <h1 class="hero-title">
+        Precision<br/>Heavy<br/>
+        <span class="line-accent">Lifting.</span>
+      </h1>
+      <p class="hero-desc">
+        Industry-leading crane hire and heavy-lift solutions for construction, energy, and infrastructure. Engineered for the most demanding environments.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          Request Quote
+        </a>
+        <a href="#fleet" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          View Fleet
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-val">25<span class="amber">+</span></div>
+          <div class="hero-stat-lbl">Years Experience</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">1,200<span class="amber">t</span></div>
+          <div class="hero-stat-lbl">Max Lift Capacity</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">98<span class="amber">%</span></div>
+          <div class="hero-stat-lbl">Safety Record</div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT — THREE.JS CANVAS -->
+    <div id="hero-canvas-wrap">
+      <canvas id="hero-canvas"></canvas>
+      <div class="canvas-glow"></div>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     TICKER
+══════════════════════════════════════════════════════════════ -->
+<div class="ticker-bar">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <p class="section-label reveal">What We Do</p>
+      <div class="divider reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">Industrial <span class="amber">Solutions</span></h2>
+      <p class="section-desc reveal reveal-delay-2">From routine lifts to complex heavy-lift engineering packages, our fleet and expertise cover every project requirement.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <rect x="8" y="34" width="32" height="8" rx="2"/>
+          <line x1="24" y1="34" x2="24" y2="8"/>
+          <line x1="24" y1="8" x2="36" y2="18"/>
+          <line x1="24" y1="18" x2="12" y2="28"/>
+          <circle cx="24" cy="36" r="2" fill="currentColor"/>
+        </svg>
+        <div class="service-title">Mobile Crane Hire</div>
+        <div class="service-desc">All-terrain and rough-terrain mobile cranes from 30t to 500t for fast, flexible mobilisation anywhere on site.</div>
+        <span class="service-tag">30 – 500 tonne</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <rect x="4" y="38" width="40" height="6" rx="2"/>
+          <line x1="12" y1="38" x2="12" y2="6"/>
+          <line x1="12" y1="6" x2="36" y2="6"/>
+          <line x1="36" y1="6" x2="36" y2="38"/>
+          <line x1="24" y1="6" x2="24" y2="22"/>
+          <circle cx="24" cy="24" r="2" fill="currentColor"/>
+        </svg>
+        <div class="service-title">Tower Crane Services</div>
+        <div class="service-desc">Self-erecting and flat-top tower cranes for extended construction projects requiring continuous overhead capability.</div>
+        <span class="service-tag">Up to 18t Hook</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <ellipse cx="24" cy="38" rx="18" ry="4"/>
+          <line x1="24" y1="34" x2="24" y2="10"/>
+          <line x1="14" y1="20" x2="34" y2="20"/>
+          <line x1="12" y1="26" x2="24" y2="20"/>
+          <line x1="36" y1="26" x2="24" y2="20"/>
+          <circle cx="24" cy="10" r="3" fill="currentColor"/>
+        </svg>
+        <div class="service-title">Heavy Lift Engineering</div>
+        <div class="service-desc">Complex multi-crane tandem lifts and engineered rigging packages with full load-path analysis and method statements.</div>
+        <span class="service-tag">Full Engineering</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <rect x="6" y="16" width="36" height="26" rx="2"/>
+          <rect x="16" y="6" width="16" height="14" rx="2"/>
+          <line x1="6" y1="28" x2="42" y2="28"/>
+          <line x1="20" y1="28" x2="20" y2="42"/>
+          <line x1="28" y1="28" x2="28" y2="42"/>
+        </svg>
+        <div class="service-title">Crawler Crane Hire</div>
+        <div class="service-desc">Heavy-duty lattice boom crawler cranes for long-duration projects and challenging ground conditions.</div>
+        <span class="service-tag">Up to 1200t</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <rect x="4" y="32" width="40" height="8" rx="2"/>
+          <rect x="10" y="18" width="28" height="16" rx="1"/>
+          <rect x="16" y="10" width="16" height="10" rx="1"/>
+          <circle cx="12" cy="40" r="4"/>
+          <circle cx="36" cy="40" r="4"/>
+        </svg>
+        <div class="service-title">Specialised Transport</div>
+        <div class="service-desc">Heavy haulage, abnormal load permitting, and self-propelled modular transporters for project logistics.</div>
+        <span class="service-tag">Nationwide</span>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="24" cy="24" r="16"/>
+          <polyline points="24,12 24,24 32,28"/>
+          <line x1="24" y1="8" x2="24" y2="4"/>
+          <line x1="40" y1="24" x2="44" y2="24"/>
+        </svg>
+        <div class="service-title">Project Management</div>
+        <div class="service-desc">Turnkey lift management from preliminary study through execution — including ground bearing and access planning.</div>
+        <span class="service-tag">Full Turnkey</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FLEET
+══════════════════════════════════════════════════════════════ -->
+<section id="fleet">
+  <div class="container">
+    <div class="fleet-header">
+      <p class="section-label reveal">Our Equipment</p>
+      <div class="divider reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">The <span class="amber">Fleet</span></h2>
+      <p class="section-desc reveal reveal-delay-2">Modern, well-maintained machinery spanning mobile, crawler, tower, and specialist crane types.</p>
+    </div>
+    <div class="fleet-tabs reveal reveal-delay-1">
+      <button class="fleet-tab active" onclick="showFleet('liebherr')">Liebherr LTM 1500</button>
+      <button class="fleet-tab" onclick="showFleet('demag')">Demag CC 2800</button>
+      <button class="fleet-tab" onclick="showFleet('grove')">Grove GMK 6300</button>
+      <button class="fleet-tab" onclick="showFleet('tadano')">Tadano GR-1000</button>
+      <button class="fleet-tab" onclick="showFleet('tower')">Potain MDT 389</button>
+    </div>
+    <div class="fleet-content active reveal" id="fleet-liebherr">
+      <div class="fleet-info">
+        <div class="fleet-model">LTM 1500-8.1</div>
+        <div class="fleet-name">Liebherr 500t</div>
+        <p class="fleet-desc">The benchmark of all-terrain crane performance. An 8-axle machine delivering 500 tonne capacity with telescoping 84m main boom and 126m with luffing jib.</p>
+        <div class="fleet-specs">
+          <div class="fleet-spec"><div class="fleet-spec-val">500t</div><div class="fleet-spec-lbl">Max Capacity</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">84m</div><div class="fleet-spec-lbl">Main Boom</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">126m</div><div class="fleet-spec-lbl">Max Radius</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">8-axle</div><div class="fleet-spec-lbl">Configuration</div></div>
+        </div>
+        <a href="#contact" class="btn-primary">Enquire Now</a>
+      </div>
+      <div class="fleet-vis">
+        <div class="fleet-vis-inner">
+          <svg viewBox="0 0 200 200" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round">
+            <rect x="20" y="140" width="160" height="30" rx="4"/>
+            <rect x="40" y="100" width="80" height="44" rx="2"/>
+            <rect x="60" y="70" width="40" height="34" rx="2"/>
+            <line x1="80" y1="70" x2="80" y2="20"/>
+            <line x1="80" y1="20" x2="150" y2="50"/>
+            <line x1="150" y1="50" x2="150" y2="80"/>
+            <circle cx="150" cy="86" r="6"/>
+            <circle cx="40" cy="170" r="10"/>
+            <circle cx="80" cy="170" r="10"/>
+            <circle cx="120" cy="170" r="10"/>
+            <circle cx="160" cy="170" r="10"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="fleet-content reveal" id="fleet-demag">
+      <div class="fleet-info">
+        <div class="fleet-model">CC 2800-1</div>
+        <div class="fleet-name">Demag Crawler 1200t</div>
+        <p class="fleet-desc">One of the world's largest production crawler cranes. Variable superlift system enables lifts up to 1,200 tonnes in boom-and-jib configuration.</p>
+        <div class="fleet-specs">
+          <div class="fleet-spec"><div class="fleet-spec-val">1200t</div><div class="fleet-spec-lbl">Max Capacity</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">108m</div><div class="fleet-spec-lbl">Lattice Boom</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">174m</div><div class="fleet-spec-lbl">Luffing Jib</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">Crawler</div><div class="fleet-spec-lbl">Drive Type</div></div>
+        </div>
+        <a href="#contact" class="btn-primary">Enquire Now</a>
+      </div>
+      <div class="fleet-vis">
+        <div class="fleet-vis-inner">
+          <svg viewBox="0 0 200 200" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round">
+            <rect x="10" y="150" width="180" height="20" rx="4"/>
+            <rect x="30" y="110" width="100" height="44" rx="2"/>
+            <line x1="80" y1="110" x2="80" y2="16"/>
+            <line x1="80" y1="16" x2="170" y2="60"/>
+            <line x1="170" y1="60" x2="170" y2="90"/>
+            <circle cx="170" cy="96" r="6"/>
+            <rect x="10" y="162" width="60" height="12" rx="2"/>
+            <rect x="130" y="162" width="60" height="12" rx="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="fleet-content reveal" id="fleet-grove">
+      <div class="fleet-info">
+        <div class="fleet-model">GMK 6300-L</div>
+        <div class="fleet-name">Grove 300t</div>
+        <p class="fleet-desc">Highly versatile 6-axle all-terrain crane with MEGAFORM boom. 300 tonne capacity with exceptional on-road performance and self-assembly.</p>
+        <div class="fleet-specs">
+          <div class="fleet-spec"><div class="fleet-spec-val">300t</div><div class="fleet-spec-lbl">Max Capacity</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">68m</div><div class="fleet-spec-lbl">Main Boom</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">100m</div><div class="fleet-spec-lbl">With Jib</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">6-axle</div><div class="fleet-spec-lbl">Configuration</div></div>
+        </div>
+        <a href="#contact" class="btn-primary">Enquire Now</a>
+      </div>
+      <div class="fleet-vis">
+        <div class="fleet-vis-inner">
+          <svg viewBox="0 0 200 200" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round">
+            <rect x="20" y="140" width="140" height="28" rx="4"/>
+            <rect x="40" y="102" width="70" height="42" rx="2"/>
+            <rect x="55" y="74" width="35" height="32" rx="2"/>
+            <line x1="72" y1="74" x2="72" y2="22"/>
+            <line x1="72" y1="22" x2="140" y2="52"/>
+            <line x1="140" y1="52" x2="140" y2="78"/>
+            <circle cx="140" cy="84" r="5"/>
+            <circle cx="40" cy="168" r="8"/>
+            <circle cx="72" cy="168" r="8"/>
+            <circle cx="110" cy="168" r="8"/>
+            <circle cx="142" cy="168" r="8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="fleet-content reveal" id="fleet-tadano">
+      <div class="fleet-info">
+        <div class="fleet-model">GR-1000XL-3</div>
+        <div class="fleet-name">Tadano Rough Terrain</div>
+        <p class="fleet-desc">100 tonne rough-terrain crane delivering exceptional off-road capability with single-engine drive and planetary outrigger system.</p>
+        <div class="fleet-specs">
+          <div class="fleet-spec"><div class="fleet-spec-val">100t</div><div class="fleet-spec-lbl">Max Capacity</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">52m</div><div class="fleet-spec-lbl">Main Boom</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">76m</div><div class="fleet-spec-lbl">With Fly Jib</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">4WD/4WS</div><div class="fleet-spec-lbl">Drive Type</div></div>
+        </div>
+        <a href="#contact" class="btn-primary">Enquire Now</a>
+      </div>
+      <div class="fleet-vis">
+        <div class="fleet-vis-inner">
+          <svg viewBox="0 0 200 200" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round">
+            <rect x="30" y="130" width="120" height="30" rx="6"/>
+            <rect x="50" y="95" width="60" height="38" rx="2"/>
+            <line x1="80" y1="95" x2="80" y2="36"/>
+            <line x1="80" y1="36" x2="138" y2="66"/>
+            <line x1="138" y1="66" x2="138" y2="90"/>
+            <circle cx="138" cy="96" r="5"/>
+            <ellipse cx="56" cy="162" rx="12" ry="12"/>
+            <ellipse cx="134" cy="162" rx="12" ry="12"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="fleet-content reveal" id="fleet-tower">
+      <div class="fleet-info">
+        <div class="fleet-model">MDT 389 F12</div>
+        <div class="fleet-name">Potain Tower Crane</div>
+        <p class="fleet-desc">Flat-top tower crane with 12 tonne maximum load and 70m jib length. Ideal for urban construction sites with space constraints and long-duration programmes.</p>
+        <div class="fleet-specs">
+          <div class="fleet-spec"><div class="fleet-spec-val">12t</div><div class="fleet-spec-lbl">Max Hook Load</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">70m</div><div class="fleet-spec-lbl">Jib Radius</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">87m</div><div class="fleet-spec-lbl">Max Freestanding</div></div>
+          <div class="fleet-spec"><div class="fleet-spec-val">Flat Top</div><div class="fleet-spec-lbl">Type</div></div>
+        </div>
+        <a href="#contact" class="btn-primary">Enquire Now</a>
+      </div>
+      <div class="fleet-vis">
+        <div class="fleet-vis-inner">
+          <svg viewBox="0 0 200 200" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round">
+            <rect x="85" y="160" width="30" height="30" rx="2"/>
+            <rect x="92" y="10" width="16" height="150"/>
+            <line x1="92" y1="30" x2="20" y2="30"/>
+            <line x1="108" y1="30" x2="180" y2="30"/>
+            <line x1="100" y1="10" x2="100" y2="30"/>
+            <line x1="180" y1="30" x2="180" y2="58"/>
+            <circle cx="180" cy="64" r="6"/>
+            <line x1="20" y1="30" x2="60" y2="12"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <p class="section-label reveal">Case Studies</p>
+        <div class="divider reveal reveal-delay-1"></div>
+        <h2 class="section-title reveal reveal-delay-1">Featured <span class="amber">Projects</span></h2>
+      </div>
+      <a href="#contact" class="btn-outline reveal">All Projects</a>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-img">
+          <svg viewBox="0 0 200 160" fill="none" stroke="#D97706" stroke-width="1.5"><rect x="10" y="60" width="180" height="80"/><line x1="100" y1="60" x2="100" y2="10"/><line x1="100" y1="10" x2="160" y2="40"/><circle cx="160" cy="48" r="8"/></svg>
+          <div class="project-img-overlay"></div>
+          <span class="project-cat">Energy</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Offshore Wind Turbine Foundation Install</div>
+          <p class="project-desc">Tandem 800t lift to install three monopile foundations for North Sea offshore wind farm using Demag CC 2800-1 crawler cranes.</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><div class="project-meta-val">800t</div><div class="project-meta-lbl">Max Lift</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">16 wks</div><div class="project-meta-lbl">Duration</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">0</div><div class="project-meta-lbl">Incidents</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img">
+          <svg viewBox="0 0 200 160" fill="none" stroke="#D97706" stroke-width="1.5"><rect x="40" y="20" width="120" height="120"/><line x1="40" y1="80" x2="160" y2="80"/><line x1="100" y1="20" x2="100" y2="140"/><rect x="80" y="60" width="40" height="40"/></svg>
+          <div class="project-img-overlay"></div>
+          <span class="project-cat">Construction</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">High-Rise Core Jump Lift</div>
+          <p class="project-desc">Precision 400t structural steel placement for 52-storey residential tower in central London using Liebherr LTM 1500 with superlift.</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><div class="project-meta-val">400t</div><div class="project-meta-lbl">Max Lift</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">8 mos</div><div class="project-meta-lbl">Duration</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">94%</div><div class="project-meta-lbl">On Schedule</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-img">
+          <svg viewBox="0 0 200 160" fill="none" stroke="#D97706" stroke-width="1.5"><ellipse cx="100" cy="80" rx="70" ry="50"/><line x1="100" y1="30" x2="100" y2="130"/><line x1="30" y1="80" x2="170" y2="80"/></svg>
+          <div class="project-img-overlay"></div>
+          <span class="project-cat">Industrial</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Refinery Distillation Column Erection</div>
+          <p class="project-desc">Complex 320t column installed within tight operational refinery — full method statement, ground-bearing assessment and night-shift execution.</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><div class="project-meta-val">320t</div><div class="project-meta-lbl">Max Lift</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">4 days</div><div class="project-meta-lbl">Execution</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">100%</div><div class="project-meta-lbl">Accuracy</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-img">
+          <svg viewBox="0 0 200 160" fill="none" stroke="#D97706" stroke-width="1.5"><path d="M20 130 L100 20 L180 130"/><line x1="60" y1="130" x2="60" y2="90"/><line x1="140" y1="130" x2="140" y2="90"/><line x1="60" y1="90" x2="140" y2="90"/></svg>
+          <div class="project-img-overlay"></div>
+          <span class="project-cat">Infrastructure</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Bridge Deck Beam Installation</div>
+          <p class="project-desc">Simultaneous 4-crane lift of 18 prestressed concrete bridge beams for M25 motorway crossing — zero lane closure overrun.</p>
+          <div class="project-meta">
+            <div class="project-meta-item"><div class="project-meta-val">4 cranes</div><div class="project-meta-lbl">Tandem Lift</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">18 beams</div><div class="project-meta-lbl">Elements</div></div>
+            <div class="project-meta-item"><div class="project-meta-val">0 delays</div><div class="project-meta-lbl">Overruns</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SAFETY
+══════════════════════════════════════════════════════════════ -->
+<section id="safety">
+  <div class="container">
+    <div class="safety-inner">
+      <div class="safety-visual reveal">
+        <div class="safety-hex-grid">
+          <div class="safety-hex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="safety-hex-title">ISO 45001</div>
+          </div>
+          <div class="safety-hex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div class="safety-hex-title">Zero Harm</div>
+          </div>
+          <div class="safety-hex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div class="safety-hex-title">Certified</div>
+          </div>
+          <div class="safety-hex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <div class="safety-hex-title">Monitoring</div>
+          </div>
+          <div class="safety-hex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <div class="safety-hex-title">Trained Teams</div>
+          </div>
+          <div class="safety-hex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <div class="safety-hex-title">Method Stmts</div>
+          </div>
+        </div>
+        <div class="safety-cert-badge">
+          <div class="safety-cert-val">0</div>
+          <div class="safety-cert-lbl">LTI Record<br/>5 Years</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="section-label">Safety First</p>
+        <div class="divider"></div>
+        <h2 class="section-title">Zero Compromise on <span class="amber">Safety</span></h2>
+        <p class="section-desc">Safety is not a cost — it's a competitive advantage. Our certified management system, rigorous training culture, and real-time site monitoring have delivered a 5-year lost-time injury-free record.</p>
+        <ul class="safety-list">
+          <li>ISO 45001:2018 Occupational Health & Safety Management System</li>
+          <li>CSCS, CPCS, and NPORS certified operators across the fleet</li>
+          <li>Full lift planning with LICM-accredited Appointed Person on every project</li>
+          <li>Ground-bearing analysis and outrigger load calculations for every mobilisation</li>
+          <li>Real-time LMI monitoring with automatic overload cut-off on all machines</li>
+          <li>Emergency response protocol with 24/7 on-call engineering support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <p class="section-label reveal">Client Feedback</p>
+      <div class="divider reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">What Our Clients <span class="amber">Say</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">CraneX delivered a complex tandem lift that other contractors wouldn't even tender for. Flawless execution, rigorous planning, and a team that genuinely cares about getting it right.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <div class="testimonial-name">James Molloy</div>
+            <div class="testimonial-role">Project Director, Laing O'Rourke</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">The appointed person CraneX provided was the most thorough lift planner we've worked with. The method statement addressed every contingency — site management were completely confident.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SR</div>
+          <div>
+            <div class="testimonial-name">Sarah Ravenscroft</div>
+            <div class="testimonial-role">Construction Manager, Skanska</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">We've used CraneX for seven years across six major energy projects. Their crawler fleet, ground-bearing capability, and safety record make them our first call every time.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DP</div>
+          <div>
+            <div class="testimonial-name">David Prentice</div>
+            <div class="testimonial-role">Operations Lead, bp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center; max-width:540px; margin:0 auto 60px;">
+      <p class="section-label reveal">Get In Touch</p>
+      <div class="divider reveal reveal-delay-1" style="margin:0 auto 24px;"></div>
+      <h2 class="section-title reveal reveal-delay-1">Request a <span class="amber">Quote</span></h2>
+      <p class="section-desc reveal reveal-delay-2" style="margin:0 auto;">Tell us about your project. We'll respond within 4 business hours with a preliminary assessment and indicative costs.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3 style="font-family:'Oswald';font-size:1.4rem;color:var(--white);margin-bottom:28px;">Contact Information</h3>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8"/><path d="M22 16.92V14a2 2 0 00-2-2h-3a2 2 0 00-2 2v.5"/></svg></div>
+          <div><div class="contact-detail-label">Phone</div><div class="contact-detail-val">0800 CRANEX1 (0800 272 639)</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="contact-detail-label">Email</div><div class="contact-detail-val">enquiries@cranex.co.uk</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="contact-detail-label">Head Office</div><div class="contact-detail-val">Unit 14, Riverside Industrial Estate<br/>Dartford, Kent DA1 5BS</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="contact-detail-label">Operating Hours</div><div class="contact-detail-val">Mon–Fri 07:00–18:00<br/>Emergency line: 24/7</div></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="John"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Smith"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Company</label>
+              <input type="text" class="form-input" placeholder="Acme Construction Ltd"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-input" placeholder="+44 7700 900000"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="john.smith@company.com"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Service Required</label>
+            <select class="form-select form-input">
+              <option value="">Select a service...</option>
+              <option>Mobile Crane Hire</option>
+              <option>Crawler Crane Hire</option>
+              <option>Tower Crane Services</option>
+              <option>Heavy Lift Engineering</option>
+              <option>Specialised Transport</option>
+              <option>Full Project Management</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project Description</label>
+            <textarea class="form-textarea" placeholder="Brief description of your lift or project requirements, including indicative load weight, lift radius, and site location..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Enquiry
+          </button>
+        </form>
+        <div id="form-success" style="display:none;text-align:center;padding:40px;background:rgba(217,119,6,0.1);border:1px solid rgba(217,119,6,0.3);border-radius:8px;margin-top:8px;">
+          <div style="font-size:2rem;margin-bottom:12px;">✓</div>
+          <div style="font-family:'Oswald';font-size:1.3rem;color:var(--white);margin-bottom:8px;">Enquiry Sent!</div>
+          <div style="color:var(--iron-400);font-size:0.9rem;">We'll be in touch within 4 business hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+              <path d="M4 20V8l8-4 8 4v12"/>
+              <line x1="12" y1="4" x2="12" y2="20"/>
+              <line x1="4" y1="20" x2="20" y2="20"/>
+            </svg>
+          </div>
+          Crane<span>X</span>
+        </a>
+        <p class="footer-brand-desc">Industry-leading crane hire and heavy-lift solutions. Safety-first operations delivering complex lifts across construction, energy, and infrastructure.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a class="social-btn" href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a class="social-btn" href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="var(--iron-900)" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Mobile Crane Hire</a></li>
+          <li><a href="#services">Tower Cranes</a></li>
+          <li><a href="#services">Heavy Lift Engineering</a></li>
+          <li><a href="#services">Crawler Cranes</a></li>
+          <li><a href="#services">Specialised Transport</a></li>
+          <li><a href="#services">Project Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#testimonials">About Us</a></li>
+          <li><a href="#projects">Case Studies</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#contact">Careers</a></li>
+          <li><a href="#contact">News</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Accreditations</div>
+        <ul class="footer-links">
+          <li><a href="#">ISO 9001:2015</a></li>
+          <li><a href="#">ISO 45001:2018</a></li>
+          <li><a href="#">CHAS Premium</a></li>
+          <li><a href="#">Constructionline Gold</a></li>
+          <li><a href="#">LEEA Member</a></li>
+          <li><a href="#">LICM Appointed Person</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 CraneX Ltd. All rights reserved. Registered in England & Wales No. 08472910</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════════
+     THREE.JS
+══════════════════════════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  /* ─── TICKER SETUP ───────────────────────────────────────────── */
+  const tickerItems = ['Mobile Crane Hire','Tower Cranes','Heavy Lift Specialists','Crawler Cranes','Tandem Lifts','ISO 45001 Certified','24/7 Support','Nationwide Coverage','Offshore Capability','1,200t Capacity'];
+  const track = document.getElementById('ticker-track');
+  const allItems = [...tickerItems, ...tickerItems];
+  track.innerHTML = allItems.map(t => `<div class="ticker-item">${t}<div class="ticker-dot"></div></div>`).join('');
+
+  /* ─── HEADER SCROLL ──────────────────────────────────────────── */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ─── MOBILE NAV ─────────────────────────────────────────────── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  window.closeMobileNav = () => mobileNav.classList.remove('open');
+
+  /* ─── FLEET TABS ─────────────────────────────────────────────── */
+  window.showFleet = function(id) {
+    document.querySelectorAll('.fleet-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.fleet-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('fleet-' + id).classList.add('active');
+    event.target.classList.add('active');
+  };
+
+  /* ─── CONTACT FORM ───────────────────────────────────────────── */
+  window.handleForm = function(e) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  };
+
+  /* ─── REVEAL OBSERVER ────────────────────────────────────────── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ══════════════════════════════════════════════════════════════
+     THREE.JS SCENE
+  ══════════════════════════════════════════════════════════════ */
+  const canvas = document.getElementById('hero-canvas');
+  const wrap = document.getElementById('hero-canvas-wrap');
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.0;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x141210, 0.04);
+
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.set(6, 3.5, 7);
+  camera.lookAt(0, 1.5, 0);
+
+  /* ─── RESIZE ─────────────────────────────────────────────────── */
+  function onResize() {
+    const w = wrap.clientWidth, h = wrap.clientHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  onResize();
+  window.addEventListener('resize', onResize);
+
+  /* ─── LIGHTING ───────────────────────────────────────────────── */
+  scene.add(new THREE.AmbientLight(0x241c14, 1.8));
+
+  const keyLight = new THREE.DirectionalLight(0xD97706, 3.5);
+  keyLight.position.set(6, 12, 6);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.width = 1024;
+  keyLight.shadow.mapSize.height = 1024;
+  keyLight.shadow.camera.near = 0.5;
+  keyLight.shadow.camera.far = 40;
+  keyLight.shadow.camera.left = -10;
+  keyLight.shadow.camera.right = 10;
+  keyLight.shadow.camera.top = 10;
+  keyLight.shadow.camera.bottom = -10;
+  keyLight.shadow.bias = -0.001;
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0x4466aa, 0.7);
+  fillLight.position.set(-8, 4, -4);
+  scene.add(fillLight);
+
+  const rimLight = new THREE.DirectionalLight(0xD97706, 0.5);
+  rimLight.position.set(0, 6, -8);
+  scene.add(rimLight);
+
+  /* ─── MATERIALS ──────────────────────────────────────────────── */
+  const matSteel = new THREE.MeshPhongMaterial({ color: 0x3a3530, shininess: 80, specular: 0x888888 });
+  const matAmber = new THREE.MeshPhongMaterial({ color: 0xD97706, shininess: 120, specular: 0xFFCC44 });
+  const matDark = new THREE.MeshPhongMaterial({ color: 0x252220, shininess: 30 });
+  const matCab = new THREE.MeshPhongMaterial({ color: 0xD97706, shininess: 100, specular: 0xFFAA00 });
+  const matGlass = new THREE.MeshPhongMaterial({ color: 0x224466, shininess: 200, specular: 0x88CCFF, transparent: true, opacity: 0.7 });
+  const matGround = new THREE.MeshPhongMaterial({ color: 0x1a1714, shininess: 5 });
+  const matRope = new THREE.MeshPhongMaterial({ color: 0x6b6258, shininess: 20 });
+  const matLoad = new THREE.MeshPhongMaterial({ color: 0x8a7f73, shininess: 60, specular: 0x444444 });
+  const matTrack = new THREE.MeshPhongMaterial({ color: 0x1e1b18, shininess: 15 });
+
+  /* ─── GEOMETRY HELPERS ───────────────────────────────────────── */
+  function box(w, h, d, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+    m.position.set(x, y, z);
+    m.rotation.set(rx, ry, rz);
+    m.castShadow = true; m.receiveShadow = true;
+    return m;
+  }
+  function cyl(rt, rb, h, seg, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0) {
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat);
+    m.position.set(x, y, z);
+    m.rotation.set(rx, ry, rz);
+    m.castShadow = true; m.receiveShadow = true;
+    return m;
+  }
+
+  /* ─── LATTICE SECTION BUILDER ────────────────────────────────── */
+  // Creates a square-section lattice segment of given length
+  function latticeSeg(len, width, mat, diagonal = true) {
+    const g = new THREE.Group();
+    const cr = 0.025; // chord radius
+
+    // Corner chords (4)
+    const offsets = [[-1,-1],[1,-1],[1,1],[-1,1]];
+    offsets.forEach(([sx, sz]) => {
+      const chord = cyl(cr, cr, len, 4, mat, sx*(width/2), len/2, sz*(width/2));
+      chord.rotation.x = 0;
+      g.add(chord);
+    });
+
+    if (diagonal) {
+      // Face diagonals — 4 faces
+      const diagLen = Math.sqrt(len*len + (width*width));
+      const diagAngle = Math.atan2(width, len);
+      const faces = [
+        { ax: 0, posX: width/2, posZ: 0, ry: 0 },   // +X face
+        { ax: 0, posX:-width/2, posZ: 0, ry: Math.PI }, // -X face
+        { ax: 0, posX: 0, posZ: width/2, ry: Math.PI/2 }, // +Z face
+        { ax: 0, posX: 0, posZ:-width/2, ry:-Math.PI/2 }, // -Z face
+      ];
+      // Simple diagonal on each face
+      const dLen = Math.sqrt(len*len + (width*0.85)*(width*0.85));
+      const dAngle = Math.atan2(width*0.85, len);
+      // +X face diagonal
+      const d1 = cyl(0.018, 0.018, dLen, 4, mat, width/2, len/2, 0);
+      d1.rotation.z = dAngle;
+      g.add(d1);
+      const d2 = cyl(0.018, 0.018, dLen, 4, mat, -width/2, len/2, 0);
+      d2.rotation.z = -dAngle;
+      g.add(d2);
+      const d3 = cyl(0.018, 0.018, dLen, 4, mat, 0, len/2, width/2);
+      d3.rotation.x = dAngle;
+      g.add(d3);
+      const d4 = cyl(0.018, 0.018, dLen, 4, mat, 0, len/2, -width/2);
+      d4.rotation.x = -dAngle;
+      g.add(d4);
+    }
+    return g;
+  }
+
+  /* ─── CRANE GROUPS ───────────────────────────────────────────── */
+  const craneGroup = new THREE.Group();
+  scene.add(craneGroup);
+
+  // ── GROUND / SHADOW CATCHER ──
+  const groundMesh = new THREE.Mesh(new THREE.CircleGeometry(6, 48), matGround);
+  groundMesh.rotation.x = -Math.PI / 2;
+  groundMesh.receiveShadow = true;
+  scene.add(groundMesh);
+
+  // ── CRAWLER TRACKS ──
+  const trackGroup = new THREE.Group();
+  craneGroup.add(trackGroup);
+
+  // Left track
+  const lt = new THREE.Group();
+  lt.add(box(0.6, 0.28, 2.4, matTrack, 0, 0, 0));
+  lt.add(box(0.7, 0.08, 2.5, matDark, 0, -0.1, 0));
+  lt.add(cyl(0.15, 0.15, 0.16, 10, matDark, 0, 0, 1.2));
+  lt.add(cyl(0.15, 0.15, 0.16, 10, matDark, 0, 0, -1.2));
+  lt.add(cyl(0.10, 0.10, 0.16, 8, matSteel, 0, 0, 0));
+  lt.position.set(-1.1, 0.15, 0);
+  trackGroup.add(lt);
+
+  // Right track (mirror)
+  const rt2 = lt.clone();
+  rt2.position.set(1.1, 0.15, 0);
+  trackGroup.add(rt2);
+
+  // ── CARBODY (connecting tracks) ──
+  const carbody = new THREE.Group();
+  carbody.add(box(2.6, 0.3, 1.8, matSteel, 0, 0.3, 0));
+  carbody.add(box(2.4, 0.12, 1.6, matDark, 0, 0.46, 0));
+  // Counterweight at rear
+  carbody.add(box(2.0, 0.5, 0.7, matDark, 0, 0.5, -0.9));
+  craneGroup.add(carbody);
+
+  // ── SLEWING RING ──
+  const slewRing = cyl(0.55, 0.55, 0.12, 20, matSteel, 0, 0.52, 0);
+  craneGroup.add(slewRing);
+
+  // ── UPPER WORKS (swings) ──
+  const swingGroup = new THREE.Group();
+  swingGroup.position.set(0, 0.52, 0);
+  craneGroup.add(swingGroup);
+
+  // Main body
+  swingGroup.add(box(1.8, 0.8, 1.6, matSteel, 0, 0.42, 0));
+  swingGroup.add(box(1.6, 0.06, 1.4, matAmber, 0, 0.82, 0));
+
+  // Cab
+  const cabGroup = new THREE.Group();
+  cabGroup.position.set(-0.55, 0.5, 0.2);
+  cabGroup.add(box(0.7, 0.7, 0.8, matCab));
+  cabGroup.add(box(0.65, 0.04, 0.75, matDark, 0, 0.37, 0));
+  // Cab windows
+  cabGroup.add(box(0.55, 0.35, 0.04, matGlass, 0, 0.05, 0.41));
+  cabGroup.add(box(0.04, 0.35, 0.65, matGlass, 0.34, 0.05, 0));
+  swingGroup.add(cabGroup);
+
+  // A-frame / mast support
+  const aFrame = new THREE.Group();
+  aFrame.position.set(0, 0.85, -0.3);
+  // Two legs
+  aFrame.add(box(0.07, 1.2, 0.07, matSteel, -0.4, 0.6, 0));
+  aFrame.add(box(0.07, 1.2, 0.07, matSteel, 0.4, 0.6, 0));
+  // Crossbar
+  aFrame.add(box(0.9, 0.07, 0.07, matSteel, 0, 1.2, 0));
+  // Top connector
+  aFrame.add(box(0.1, 0.1, 0.1, matAmber, 0, 1.28, 0));
+  swingGroup.add(aFrame);
+
+  // Rear counterweight
+  swingGroup.add(box(1.7, 0.6, 0.5, matDark, 0, 0.32, -1.1));
+  swingGroup.add(box(1.5, 0.08, 0.45, matAmber, 0, 0.65, -1.1));
+
+  // ── MAST (vertical lattice tower) ──
+  const mastGroup = new THREE.Group();
+  mastGroup.position.set(0, 0.86, 0.1);
+  swingGroup.add(mastGroup);
+
+  const mastHeight = 4.0;
+  const mastWidth = 0.28;
+  const mastSec1 = latticeSeg(mastHeight, mastWidth, matSteel);
+  mastGroup.add(mastSec1);
+
+  // Top cap
+  mastGroup.add(box(mastWidth+0.04, 0.08, mastWidth+0.04, matAmber, 0, mastHeight+0.04, 0));
+
+  // Mast top platform
+  const mastTop = new THREE.Group();
+  mastTop.position.set(0, mastHeight + 0.08, 0);
+  mastTop.add(box(0.5, 0.08, 0.5, matSteel, 0, 0, 0));
+  mastGroup.add(mastTop);
+
+  // ── PENDANT LINES from A-frame to mast top ──
+  // (approximated as thin boxes)
+  const pendant1 = box(0.018, 0.018, 1.6, matRope, -0.35, 0, 0);
+  pendant1.position.set(-0.35, mastHeight + 0.1 - 0.8, -0.5);
+  pendant1.rotation.x = Math.atan2(1.4, 1.28);
+  mastGroup.add(pendant1);
+
+  const pendant2 = box(0.018, 0.018, 1.6, matRope, 0.35, 0, 0);
+  pendant2.position.set(0.35, mastHeight + 0.1 - 0.8, -0.5);
+  pendant2.rotation.x = Math.atan2(1.4, 1.28);
+  mastGroup.add(pendant2);
+
+  // ── BOOM (angled lattice arm) ──
+  const boomGroup = new THREE.Group();
+  const boomAngleDeg = 70; // degrees from horizontal
+  const boomAngle = (boomAngleDeg * Math.PI) / 180;
+  boomGroup.position.set(0, mastHeight * 0.18, mastWidth * 0.5);
+  boomGroup.rotation.x = -(Math.PI / 2 - boomAngle);
+  mastGroup.add(boomGroup);
+
+  const boomLen = 4.5;
+  const boomWidth = 0.22;
+  const boomSec = latticeSeg(boomLen, boomWidth, matSteel);
+  boomGroup.add(boomSec);
+
+  // Boom tip
+  boomGroup.add(box(boomWidth + 0.04, 0.08, boomWidth + 0.04, matAmber, 0, boomLen + 0.04, 0));
+
+  // Sheave at boom tip
+  const sheave = cyl(0.1, 0.1, 0.05, 12, matSteel, 0, boomLen + 0.12, 0);
+  sheave.rotation.z = Math.PI / 2;
+  boomGroup.add(sheave);
+
+  // Boom-mast pendant (back stay)
+  const boomPendLen = 2.8;
+  const boomPend = box(0.018, 0.018, boomPendLen, matRope);
+  boomPend.position.set(0, boomLen * 0.55, 0);
+  boomPend.rotation.x = -boomAngle * 0.4;
+  boomGroup.add(boomPend);
+
+  // ── HOOK & LOAD ──
+  const hookGroup = new THREE.Group();
+  // Compute tip world position in local mast space
+  const boomTipLocal = new THREE.Vector3(0, boomLen, 0);
+  boomTipLocal.applyEuler(boomGroup.rotation);
+  boomTipLocal.add(boomGroup.position);
+  hookGroup.position.set(boomTipLocal.x, boomTipLocal.y, boomTipLocal.z);
+  mastGroup.add(hookGroup);
+
+  // Rope
+  const ropeLen = 1.4;
+  hookGroup.add(cyl(0.012, 0.012, ropeLen, 4, matRope, 0, -ropeLen / 2, 0));
+
+  // Hook block
+  hookGroup.add(box(0.15, 0.1, 0.1, matSteel, 0, -ropeLen - 0.05, 0));
+  hookGroup.add(cyl(0.04, 0.04, 0.18, 8, matAmber, 0, -ropeLen - 0.12, 0));
+  hookGroup.add(cyl(0.025, 0.025, 0.12, 6, matAmber, 0, -ropeLen - 0.22, 0));
+
+  // Load block
+  const loadGroup = new THREE.Group();
+  loadGroup.position.set(0, -ropeLen - 0.3, 0);
+  loadGroup.add(box(0.45, 0.35, 0.45, matLoad, 0, -0.175, 0));
+  loadGroup.add(box(0.5, 0.04, 0.5, matAmber, 0, 0, 0));
+  // Rigging slings
+  const slingLen = 0.32;
+  const slingOff = 0.2;
+  [[1,1],[1,-1],[-1,1],[-1,-1]].forEach(([sx,sz]) => {
+    const sl = box(0.012, slingLen, 0.012, matRope, sx*slingOff, -slingLen/2, sz*slingOff);
+    sl.rotation.z = -sx*0.3;
+    sl.rotation.x = sz*0.3;
+    loadGroup.add(sl);
+  });
+  hookGroup.add(loadGroup);
+
+  /* ─── PARTICLES ──────────────────────────────────────────────── */
+  const ptCount = 120;
+  const ptPositions = new Float32Array(ptCount * 3);
+  for (let i = 0; i < ptCount; i++) {
+    ptPositions[i*3+0] = (Math.random()-0.5) * 10;
+    ptPositions[i*3+1] = Math.random() * 8;
+    ptPositions[i*3+2] = (Math.random()-0.5) * 10;
+  }
+  const ptGeo = new THREE.BufferGeometry();
+  ptGeo.setAttribute('position', new THREE.BufferAttribute(ptPositions, 3));
+  const ptMat = new THREE.PointsMaterial({
+    color: 0xD97706, size: 0.025, transparent: true, opacity: 0.35,
+    sizeAttenuation: true
+  });
+  const particles = new THREE.Points(ptGeo, ptMat);
+  scene.add(particles);
+
+  /* ─── GROUND GRID ────────────────────────────────────────────── */
+  const gridHelper = new THREE.GridHelper(10, 20, 0x2a2520, 0x1e1b18);
+  gridHelper.material.opacity = 0.4;
+  gridHelper.material.transparent = true;
+  scene.add(gridHelper);
+
+  /* ─── SCROLL + ANIMATION STATE ───────────────────────────────── */
+  let scrollY = 0;
+  window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
+
+  const clock = new THREE.Clock();
+  let craneRotY = 0;
+  let craneTargetRotY = 0;
+  let camAngle = 0.7;
+  let camTargetAngle = 0.7;
+  const camRadius = 8;
+  const camHeight = 3.8;
+
+  // Animate camera around crane on mouse move
+  wrap.addEventListener('mousemove', e => {
+    const rect = wrap.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width - 0.5;
+    camTargetAngle = 0.7 + mx * 0.6;
+  });
+
+  /* ─── ANIMATION LOOP ─────────────────────────────────────────── */
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    const heroEl = document.getElementById('hero');
+    const heroHeight = heroEl ? heroEl.offsetHeight : window.innerHeight;
+    const progress = Math.min(Math.max(scrollY / heroHeight, 0), 1);
+
+    // Scroll-driven rotation
+    craneTargetRotY = progress * Math.PI * 2 + t * 0.06 * (1 - progress * 0.85);
+    craneRotY += (craneTargetRotY - craneRotY) * 0.04;
+    craneGroup.rotation.y = craneRotY;
+
+    // Gentle float
+    craneGroup.position.y = Math.sin(t * 0.35) * 0.06;
+
+    // Hook sway
+    hookGroup.rotation.z = Math.sin(t * 0.65) * 0.04;
+    hookGroup.rotation.x = Math.cos(t * 0.5) * 0.02;
+
+    // Load sway (slightly out of phase)
+    loadGroup.rotation.z = Math.sin(t * 0.5 + 0.4) * 0.05;
+    loadGroup.rotation.x = Math.cos(t * 0.4 + 0.2) * 0.03;
+
+    // Boom slight flex
+    boomGroup.rotation.x = -(Math.PI / 2 - boomAngle) + Math.sin(t * 0.3) * 0.008;
+
+    // Camera orbit
+    camAngle += (camTargetAngle - camAngle) * 0.04;
+    camera.position.x = Math.sin(camAngle) * camRadius;
+    camera.position.z = Math.cos(camAngle) * camRadius;
+    camera.position.y = camHeight + Math.sin(t * 0.2) * 0.15;
+    camera.lookAt(0, 1.8, 0);
+
+    // Particle drift
+    const pos = ptGeo.attributes.position;
+    for (let i = 0; i < ptCount; i++) {
+      pos.array[i*3+1] += 0.004;
+      if (pos.array[i*3+1] > 8) pos.array[i*3+1] = 0;
+    }
+    pos.needsUpdate = true;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+})();
+</script>
+</body>
+</html>
