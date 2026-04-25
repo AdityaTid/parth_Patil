@@ -35,6 +35,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 3rem;height:80px;d
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-cta{background:var(--rust);color:#fff;padding:.55rem 1.5rem;font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;clip-path:polygon(7px 0%,100% 0%,100% calc(100% - 7px),calc(100% - 7px) 100%,0% 100%,0% 7px);transition:background .25s}
 .nav-cta:hover{background:var(--rust-bright)}
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:110}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform .3s,opacity .3s}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* MOBILE NAV OVERLAY */
+.mobile-nav{display:none;position:fixed;inset:0;z-index:105;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--white);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;transition:color .25s}
+.mobile-nav a:hover{color:var(--rust-bright)}
 
 /* TICKER */
 .ticker-bar{overflow:hidden;background:var(--rust);padding:.5rem 0}
@@ -312,21 +323,66 @@ footer{background:#060606;padding:5rem 3rem 2.5rem;border-top:1px solid var(--ir
   .d-divider{height:1px;background:var(--iron)}
 }
 @media(max-width:768px){
-  nav{padding:1rem 1.5rem}
+  nav{padding:1rem 1.5rem;height:64px}
   .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
   .hero-content{padding-left:1.5rem!important;padding-right:1.5rem!important}
+  h1.hero-title{font-size:clamp(2.8rem,8vw,4.5rem)}
+  .hero-stats{flex-wrap:wrap;gap:1.5rem}
+  .hero-stats .stat{min-width:40%}
+  .stat-num{font-size:2.2rem}
+  .hero-desc{font-size:.95rem;max-width:100%}
+  .hero-btns{flex-direction:column;gap:.75rem}
+  .hero-btns .btn-glass,.hero-btns .btn-ghost,.hero-btns .btn-primary{width:100%;text-align:center}
+  .hero-eyebrow{font-size:.6rem;padding:.35rem .85rem}
   .why-grid,.contact-grid{grid-template-columns:1fr}
   .why-img-accent{display:none}
+  #why{padding:3.5rem 1.5rem}
+  .why-badge{left:0}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
   .features-strip{flex-wrap:wrap}
   .feature-item{min-width:50%;border-right:none;border-bottom:1px solid rgba(255,255,255,.15)}
   .form-row{grid-template-columns:1fr}
   .products-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;gap:1rem;text-align:center}
+  .footer-certs{flex-wrap:wrap;justify-content:center}
   #products .container,.prod-grid-section{padding-left:1.5rem;padding-right:1.5rem}
   .acc-wrapper{height:300px}
   .acc-panel.acc-inactive{width:44px;flex:0 0 44px}
   .detail-slide{padding:1.75rem 1.5rem}
+  .ticker-bar{margin-top:64px!important}
+  #specs{padding:3.5rem 1.5rem}
+  .specs-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  #contact{padding:3.5rem 1.5rem}
+  .contact-form{padding:1.75rem 1.25rem}
+  footer{padding:3.5rem 1.5rem 2rem}
+  #clients{padding:2.5rem 1.5rem}
+  h2.section-title{font-size:clamp(2rem,5vw,3rem)}
+  .section-subtitle{font-size:.88rem}
+}
+@media(max-width:480px){
+  nav{padding:.75rem 1rem;height:56px}
+  .nav-logo{font-size:1.3rem;letter-spacing:2px}
+  .ticker-bar{margin-top:56px!important}
+  h1.hero-title{font-size:clamp(2.2rem,7vw,3.5rem)}
+  .hero-eyebrow{font-size:.55rem;letter-spacing:2px}
+  .hero-stats{gap:1rem}
+  .stat-num{font-size:1.8rem}
+  .stat-lbl{font-size:.58rem}
+  .features-strip{flex-direction:column}
+  .feature-item{min-width:100%}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .prod-grid-section{padding:2.5rem 1rem 3.5rem}
+  .product-card{padding:1.5rem}
+  .why-point{padding:1rem;flex-direction:column}
+  .contact-grid{gap:2.5rem}
+  .contact-info-desc{font-size:.85rem}
+  .detail-name{font-size:1.6rem}
+  .detail-desc{font-size:.8rem}
+  .bento-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:70px;gap:5px}
+  .b1,.b7{grid-column:span 2}
+  .b2,.b3,.b4,.b5,.b6,.b8{grid-column:span 1;grid-row:span 2}
 }
 
 /* ── MaskedSlideReveal hero words ── */
@@ -562,10 +618,20 @@ footer{background:#060606;padding:5rem 3rem 2.5rem;border-top:1px solid var(--ir
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#products" onclick="closeMobileNav()">Products</a>
+  <a href="#why" onclick="closeMobileNav()">About</a>
+  <a href="#specs" onclick="closeMobileNav()">Specifications</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <button class="btn-primary" onclick="closeMobileNav();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+</div>
 
 <!-- TICKER -->
-<div class="ticker-bar" style="margin-top:80px">
+<div class="ticker-bar" id="ticker-bar" style="margin-top:80px">
   <div class="ticker-track">
     <span class="ticker-item"><span class="ticker-dot"></span>EOT Cranes</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Goliath Cranes</span>
@@ -1350,6 +1416,24 @@ window.addEventListener('scroll', () => {
     nav.style.borderBottomColor = 'rgba(255,255,255,0.08)';
   }
 }, { passive: true });
+
+// ============================================================
+// MOBILE NAV TOGGLE
+// ============================================================
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('active');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger');
+  nav.classList.remove('open');
+  btn.classList.remove('active');
+  document.body.style.overflow = '';
+}
 
 // ── GALLERY4 CAROUSEL ──────────────────────────────────────
 (function(){
